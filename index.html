@@ -88,10 +88,48 @@
      transition: 0.3s;
     }
 
-#backToTop:hover {
-  background-color: #ff0000; /* Se aprinde la trecerea mouse-ului */
-  transform: scale(1.1);
-}
+    #backToTop:hover {
+      background-color: #ff0000; /* Se aprinde la trecerea mouse-ului */
+      transform: scale(1.1);
+    }
+
+        .video-container {
+      margin-top: 25px;
+      padding: 15px;
+      background: #111;
+      border-radius: 10px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+
+    .video-container h3 {
+      color: #c40000;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    video {
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(196, 0, 0, 0.3);
+      max-width: 100%;
+    }
+        .video-mic {
+      width: 50%; /* Ajustează acest procent pentru a-l face și mai mic sau mai mare */
+      max-width: 450px; /* Nu va fi niciodată mai lat de 450px, indiferent de ecran */
+      display: block;
+      margin: 0 auto; /* Centrează videoclipul */
+      border-radius: 12px;
+      border: 1px solid #c40000;
+      box-shadow: 0 0 15px rgba(196, 0, 0, 0.3);
+    }
+
+    /* Pe telefoane mobile, îl facem puțin mai mare să se poată vedea drumul */
+    @media (max-width: 600px) {
+      .video-mic {
+        width: 90%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -219,7 +257,7 @@
               <td>Comuna Lăpușna, Str. Dimitrie Cantemir, Raion Hîncești, MD-3431</td>
             </tr>
             <tr>
-              <th>Hartă interactivă</th>
+              <th></th>
               <td>
                 <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
                   <iframe
@@ -232,6 +270,12 @@
                   </iframe>
                 </div>
                 <div style="margin-top:0.5rem; color:var(--gray); font-size:0.95rem;">Dacă harta nu arată corect, folosiți linkul: <a href="https://maps.app.goo.gl/hkb7y8Qoaupd8mUn7" target="_blank" rel="noopener">Deschide pe Google Maps</a></div>
+                <div class="video-container">
+  <video autoplay muted loop playsinline poster="imagine-coperta.jpg" class = "video-mic">
+    <source src="images/cumajungem.mp4" type="video/mp4">
+  </video>
+  
+</div>
               </td>
             </tr>
            

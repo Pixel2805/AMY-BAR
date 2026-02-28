@@ -48,6 +48,7 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
     }
+    
     table {
       width: 100%;
       border-collapse: collapse;
@@ -67,6 +68,30 @@
       color: #fd0101;
       margin-top: 40px;
     }
+
+    #backToTop {
+     display: none; /* Ascuns implicit */
+     position: fixed; 
+     bottom: 80px; /* Distanța de jos */
+     right: 30px; /* Distanța de la dreapta */
+     z-index: 99; 
+     border: none; 
+     outline: none; 
+     background-color: #c40000; 
+     color: white; 
+     cursor: pointer; 
+     padding: 15px; 
+     border-radius: 100%; /* Îl face rotund */
+     font-size: 18px; 
+     font-weight: bold;
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+     transition: 0.3s;
+    }
+
+#backToTop:hover {
+  background-color: #ff0000; /* Se aprinde la trecerea mouse-ului */
+  transform: scale(1.1);
+}
   </style>
 </head>
 <body>
@@ -80,6 +105,9 @@
     <a href="#harta">Harta</a>  
     <a href="#orar">Orar</a>
   </nav>
+
+  <input type="text" id="searchInput" onkeyup="filterMenu()" placeholder="Caută ce-ți vrea inima..." 
+       style="width: 30%; padding: 12px; margin-left: 33%; margin-bottom: 20px; border-radius: 5px; border: 1px solid #c40000; background: #222; color: #fff;">
 
   <section id="bauturi">
     <h2>Băuturi</h2>
@@ -188,7 +216,7 @@
           <tbody>
             <tr>
               <th>Adresă exactă</th>
-              <td>Sat Lăpușna, Str. Dimitrie Cantemir, Raionul Hîncești, MD-3431</td>
+              <td>Comuna Lăpușna, Str. Dimitrie Cantemir, Raion Hîncești, MD-3431</td>
             </tr>
             <tr>
               <th>Hartă interactivă</th>
@@ -223,15 +251,68 @@
 
   
 <footer>
-            © 2025 AMY-BAR | Design by Antonin 🍷
+            © 2026 AMY-BAR | Design by Antonin 🍷
 </footer>
+
+
+<script>
+    function filterMenu() {
+  let input = document.getElementById('searchInput').value
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  
+  let sections = document.querySelectorAll('section');
+
+  sections.forEach(section => {
+    let table = section.querySelector('table');
+    if (!table) return; 
+
+    let rows = table.querySelectorAll('tr');
+    let hasVisibleRows = false;
+
+    rows.forEach((row, index) => {
+      if (index === 0) return; 
+
+      let rowText = row.textContent
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+      if (rowText.includes(input)) {
+        row.style.display = "";
+        hasVisibleRows = true;
+      } else {
+        row.style.display = "none";
+      }
+    });
+
+    if (input !== "" && !hasVisibleRows) {
+      section.style.display = "none";
+    } else {
+      section.style.display = "block";
+    }
+  });
+}
+  </script>
+
+  <script>
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+  let btn = document.getElementById("backToTop");
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+}
+
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Scroll fin, nu brusc
+  });
+}
+  </script>
+
+<button onclick="topFunction()" id="backToTop" title="Mergi sus">↑</button>
 </body>
 
 </html>
-
-
-
-
-
-
-

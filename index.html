@@ -2,8 +2,13 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
+ 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>AMY-BAR</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     body {
       margin: 0;
@@ -130,6 +135,155 @@
       }
     }
 
+          /* SOCIAL MEDIA SECTION */
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #c40000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(196, 0, 0, 0.3);
+    }
+
+    .social-link:hover {
+      background-color: #ff0000;
+      transform: scale(1.2) translateY(-5px);
+      box-shadow: 0 5px 20px rgba(196, 0, 0, 0.5);
+    }
+
+    .social-link.facebook {
+      background-color: #1877F2;
+    }
+
+    .social-link.facebook:hover {
+      background-color: #166FE5;
+    }
+
+    .social-link.instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .social-link.instagram:hover {
+      transform: scale(1.2) translateY(-5px) rotate(10deg);
+    }
+
+    .social-link.tiktok {
+      background-color: #000;
+      border: 2px solid #c40000;
+    }
+
+    .social-link.tiktok:hover {
+      background-color: #c40000;
+    }
+
+    /* PAYMENT METHODS SECTION */
+    .payment-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      background-color: #111;
+      border: 2px solid #c40000;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .payment-method:hover {
+      background-color: #c40000;
+      box-shadow: 0 0 15px rgba(196, 0, 0, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .payment-method i {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #c40000;
+    }
+
+    .payment-method:hover i {
+      color: #fff;
+    }
+
+    .payment-method span {
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .footer-social {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .payment-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+        /* SOCIAL MEDIA SEARCH BAR */
+    .social-link-search {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #c40000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(196, 0, 0, 0.3);
+    }
+
+    .social-link-search:hover {
+      background-color: #ff0000;
+      transform: scale(1.15);
+      box-shadow: 0 5px 20px rgba(196, 0, 0, 0.5);
+    }
+
+    .social-link-search.instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .social-link-search.instagram:hover {
+      transform: scale(1.15) rotate(10deg);
+    }
+
+    .social-link-search.tiktok {
+      background-color: #000;
+      border: 2px solid #c40000;
+    }
+
+    .social-link-search.tiktok:hover {
+      background-color: #c40000;
+      border-color: #fff;
+    }
+
   </style>
 </head>
 <body>
@@ -140,13 +294,23 @@
     <a href="#bauturi">Băuturi</a>
     <a href="#snackuri">Snackuri</a>
     <a href="#distractie">Distracție</a>
-    <a href="#harta">Harta</a>  
+    <a href="#harta">Hartă</a>  
     <a href="#orar">Orar</a>
+    <a href="#plati">Plăți</a>
   </nav>
 
+  <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
+  <a href="https://www.instagram.com/andrievici.amy" target="_blank" rel="noopener" class="social-link-search instagram" title="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  
   <input type="text" id="searchInput" onkeyup="filterMenu()" placeholder="Caută ce-ți vrea inima..." 
-       style="width: 50%; padding: 12px; margin-left: 24%; margin-bottom: 20px; border-radius: 5px; border: 1px solid #c40000; background: #222; color: #fff;">
-
+       style="width: 50%; padding: 12px; border-radius: 5px; border: 1px solid #c40000; background: #222; color: #fff;">
+  
+  <a href="https://www.tiktok.com/@andrievici.amy" target="_blank" rel="noopener" class="social-link-search tiktok" title="TikTok">
+    <i class="fab fa-tiktok"></i>
+  </a>
+</div>
   <section id="bauturi">
     <h2>Băuturi</h2>
     <table>
@@ -293,9 +457,41 @@
     </table>
   </section>
 
+
+
+<section id="plati">
+  <h2>💳 Metode de Plată</h2>
+  <p style="text-align: center; margin-bottom: 20px; color: #ffffff;">Acceptăm doar modalitățile de plată:</p>
+  <div class="payment-container">
+    <div class="payment-method">
+      <i class="fas fa-money-bill-wave"></i>
+      <span>Numerar</span>
+    </div>
+    <div class="payment-method">
+      <i class="fas fa-mobile-alt"></i>
+      <span>Plată Mobile</span>
+    </div>
+    <div class="payment-method">
+      <i class="fas fa-credit-card"></i>
+      <span>Card Bancar</span>
+    </div>
+  </div>
+</section>
+
   
 <footer>
-            © 2026 AMY-BAR | Design by Antonin 🍷
+  <div class="footer-social">
+    <p style="margin: 0; margin-bottom: 10px; font-weight: bold;">📱 Urmărește-ne</p>
+    <div class="social-media" style="justify-content: center;">
+      <a href="https://www.instagram.com/andrievici.amy" target="_blank" rel="noopener" class="social-link instagram" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@andrievici.amy" target="_blank" rel="noopener" class="social-link tiktok" title="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+  <p>© 2026 AMY-BAR | Design by Antonin 🍷</p>
 </footer>
 
 
